@@ -1,0 +1,10 @@
+# Listing various sites that helped me out with questions/etc..s
+
+# GIT
+
+https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/
+https://stackoverflow.com/questions/18801147/changing-the-git-remote-push-to-default
+
+# AsyncStorage
+
+https://facebook.github.io/react-native/docs/asyncstorage.html#methods
