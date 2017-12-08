@@ -12,3 +12,7 @@ https://facebook.github.io/react-native/docs/asyncstorage.html#methods
 # General JS stuff i forgot for some reason lol
 https://www.google.com/search?q=add+to+array&rlz=1C1CHBF_enUS696US696&oq=add+to+array&aqs=chrome..69i57j0l5.1555j0j4&sourceid=chrome&ie=UTF-8
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
+
+#other react stuff
+https://reactnavigation.org/docs/navigators/tab
+https://reactnavigation.org/docs/navigators/stack
