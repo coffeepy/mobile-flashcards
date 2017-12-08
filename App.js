@@ -1,15 +1,28 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TabNavigator } from 'react-native';
 import Decks from './components/Decks'
-import { setInitData } from './utils/api'
+import { setInitData, getDecks } from './utils/api'
+import { objectToArray } from './utils/helpers'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 
-setInitData()
-
+// Tabs = TabNavigator({ Decks: {
+//     screen: Decks
+//   }
+// })
 export default class App extends React.Component {
+  state = {
+    decks: []
+  }
+  componentDidMount() {
+    setInitData()
+      .then(getDecks)
+      .then((decks)=> this.setState({decks: objectToArray(decks)}))
+  }
   render() {
+    const { decks } = this.state
     return (
       <View style={styles.container}>
-        <Decks />
+        <Decks decks={decks} />
       </View>
     );
   }
@@ -18,8 +31,12 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
+    marginTop: 20,
+    // alignItems: 'center',
     justifyContent: 'center',
   },
+  test: {
+    flex: 1,
+    backgroundColor: 'red',
+  }
 });
