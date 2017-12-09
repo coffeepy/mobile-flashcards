@@ -16,11 +16,11 @@ export const getDecks = () => {
 }
 
 // return a single Deck
-export const getDeck = (deck) => {
+export const getDeck = (deckTitle) => {
   return AsyncStorage.getItem(DECK_STORAGE_KEY)
     .then((obj)=> {
-      console.log('getDeck', JSON.parse(obj)[deck])
-      return JSON.parse(obj)[deck]
+      console.log('getDeck', JSON.parse(obj)[deckTitle])
+      return JSON.parse(obj)[deckTitle]
     })
 }
 
@@ -39,28 +39,37 @@ export const saveDeckTitle = (deckTitle) => {
 }
 
 export const addCardToDeck = (deckTitle, card) => {
-  getDeck(deckTitle)
-    .then((deck) => {
-      console.log('add before', deck)
-      deck.cards.push(card)
-      console.log('add after', deck)
-      return AsyncStorage.mergeItem(DECK_STORAGE_KEY, JSON.stringify({[deckTitle]:deck}))
-    }).then(() => getDecks())
+  console.log('deckTtile', deckTitle)
+  return getDeck(deckTitle)
+          .then((deck) => {
+            console.log('add before', deck)
+            deck.cards.push(card)
+            console.log('add after', deck)
+            return AsyncStorage.mergeItem(DECK_STORAGE_KEY, JSON.stringify({[deckTitle]:deck}))
+          }).then(() => getDecks())
 }
 
 // just for initial testing
 export const setInitData= () => {
   const initData = {
-    DeckOne: {
+    "Deck One": {
       title: 'Deck One',
       cards: [
         {
           'question': 'Whats Up?',
           'answer': 'Nada',
         },
+        {
+          'question': 'Whats Up Again?',
+          'answer': 'Nada',
+        },
+        {
+          'question': 'Whats Up Finally?',
+          'answer': 'Nada',
+        },
       ],
     },
-    DeckTwo: {
+    "Deck Two": {
       title: 'Deck Two',
       cards: [
         {

@@ -17,8 +17,10 @@ class AddDeck extends Component {
   }
   onPress = () => {
     const { submitDeck } = this.props.screenProps
+    // possibly add custom details to the view Home for color onChange or animation
     submitDeck(this.state.val)
       .then(()=> this.props.navigation.navigate('Home'))
+    this.setState({val:''})
   }
   render() {
     const { val, submitted } = this.state

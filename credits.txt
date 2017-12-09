@@ -16,3 +16,6 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 #other react stuff
 https://reactnavigation.org/docs/navigators/tab
 https://reactnavigation.org/docs/navigators/stack
+https://reactjs.org/docs/react-component.html#componentdidupdate
+#reactnative
+https://stackoverflow.com/questions/39661905/how-to-get-values-which-are-in-textinput-when-button-is-click-in-reactnative
