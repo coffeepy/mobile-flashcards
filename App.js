@@ -7,9 +7,8 @@ import Score from './components/Score'
 import Tabs from './components/Tabs'
 import DeckItemDetails from './components/DeckItemDetails'
 import { setInitData, getDecks, getDeck, saveDeckTitle, addCardToDeck  } from './utils/api'
-import { objectToArray } from './utils/helpers'
+import { objectToArray, setLocalNotification } from './utils/helpers'
 // TODO: ADD NOTIFICATION REMINDER
-// TODO: ADD NEW DECK SHOULD ROUTE TO INDIVIDUAL View
 // TODO: PRETTIFY AND ADD ANIMATIONS
 // TODO: REMOVE DEFAULT DATA, ADD VIEW FOR NO DECKS
 // TODO: CREATE README
@@ -55,6 +54,7 @@ export default class App extends React.Component {
       .then((decks)=> this.setState({decks: objectToArray(decks)}))
   }
   componentDidMount() {
+    setLocalNotification()
     setInitData()
       .then(this.getDecksAndSetState)
   }

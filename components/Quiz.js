@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { getDeck } from '../utils/api'
+import { setLocalNotification, clearNotifications } from '../utils/helpers'
 import Score from './Score'
 import  { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 class Quiz extends Component {
@@ -25,6 +26,11 @@ class Quiz extends Component {
           cardCount: freshDeck.cards.length,
         })
       })
+    // remove Notification to take Quiz
+    // then add a new for tomorrow
+    clearNotifications()
+      .then(setLocalNotification)
+
   }
   passOrFail = (correct)=> {
     let { card, cardCount, deck, rightAnswers, answer, question } = this.state

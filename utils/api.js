@@ -4,7 +4,7 @@ import { AsyncStorage } from 'react-native'
 // identify the storage belongs to the specific app. At first i thought this was doing
 // some odd string split and then making an object like mobileFlashCards: { Decks: {}}
 // turns out its just { "mobileFlashCards:decks" : {...data}}
-const DECK_STORAGE_KEY = `mobileFlashCards:decks`
+const DECK_STORAGE_KEY = 'mobileFlashCards:decks'
 
 // get All Decks
 export const getDecks = () => {
