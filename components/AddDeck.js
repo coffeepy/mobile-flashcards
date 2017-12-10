@@ -7,6 +7,7 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native'
+import { resetToDeck } from '../utils/helpers'
 
 class AddDeck extends Component {
   state = {
@@ -19,8 +20,10 @@ class AddDeck extends Component {
     const { submitDeck } = this.props.screenProps
     // possibly add custom details to the view Home for color onChange or animation
     submitDeck(this.state.val)
-      .then(()=> this.props.navigation.navigate('Home'))
-    this.setState({val:''})
+      .then(()=> {
+        this.props.navigation.navigate('DeckItemDetails', { deck: { title: this.state.val }})
+        this.setState({val:''})
+      })
   }
   render() {
     const { val, submitted } = this.state

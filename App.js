@@ -3,26 +3,45 @@ import { StyleSheet, Text, View, } from 'react-native';
 import { StackNavigator } from 'react-navigation'
 import AddCard from './components/AddCard'
 import Quiz from './components/Quiz'
+import Score from './components/Score'
 import Tabs from './components/Tabs'
 import DeckItemDetails from './components/DeckItemDetails'
 import { setInitData, getDecks, getDeck, saveDeckTitle, addCardToDeck  } from './utils/api'
 import { objectToArray } from './utils/helpers'
-
+// TODO: ADD NOTIFICATION REMINDER
+// TODO: ADD NEW DECK SHOULD ROUTE TO INDIVIDUAL View
+// TODO: PRETTIFY AND ADD ANIMATIONS
+// TODO: REMOVE DEFAULT DATA, ADD VIEW FOR NO DECKS
+// TODO: CREATE README
+// TODO: PRESSING A DECK SHOULD GENERATE AN ANIMATION
+// use this  https://reactnavigation.org/docs/navigators/navigation-actions#Reset
 MainNav = StackNavigator({
   Home: {
     screen: Tabs,
-    navigationOptions: {
-      title: 'Decks'
-    }
   },
   DeckItemDetails: {
-    screen: DeckItemDetails
+    screen: DeckItemDetails,
+    navigationOptions: {
+      title: 'Deck',
+    },
   },
   AddCard: {
-    screen: AddCard
+    screen: AddCard,
+    navigationOptions: {
+      title: 'Add Card',
+    },
   },
   Quiz: {
-    screen: Quiz 
+    screen: Quiz,
+    navigationOptions: {
+      title: 'Quiz',
+    },
+  },
+  Score: {
+    screen: Score,
+    navigationOptions: {
+      title: 'Score',
+    },
   },
 })
 

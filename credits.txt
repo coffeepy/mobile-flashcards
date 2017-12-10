@@ -19,3 +19,7 @@ https://reactnavigation.org/docs/navigators/stack
 https://reactjs.org/docs/react-component.html#componentdidupdate
 #reactnative
 https://stackoverflow.com/questions/39661905/how-to-get-values-which-are-in-textinput-when-button-is-click-in-reactnative
+
+# how to reset the stacknavi
+https://github.com/react-community/react-navigation/issues/2068
+https://reactnavigation.org/docs/navigators/navigation-actions#Reset

@@ -10,6 +10,16 @@ class DeckItemDetails extends Component {
   state = {
     deck: {}
   }
+  // resetToDeck = (deck) => (
+  //   NavigationActions.reset({
+  //     // which index to load in the array
+  //     index: 1,
+  //     actions: [
+  //       NavigationActions.navigate({ routeName: 'Home'}),
+  //       NavigationActions.navigate({ routeName: 'DeckItemDetails', params: { deck } }),
+  //     ],
+  //   })
+  // )
   componentDidMount() {
     const { deck } = this.props.navigation.state.params
     // ensures we dont get a stale deck

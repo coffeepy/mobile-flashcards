@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { getDeck } from '../utils/api'
+import Score from './Score'
 import  { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-
-
 class Quiz extends Component {
   state = {
     card: 0,
@@ -55,35 +54,39 @@ class Quiz extends Component {
     const { rightAnswers, cardCount } = this.state
     return Math.round((rightAnswers / cardCount) * 100)
   }
+  componentDidUpdate() {
+    const { deck, quizComplete } = this.state
+    if (quizComplete) {
+      return this.props.navigation.navigate('Score', { score: this.calcScore(), deck })
+    }
+  }
   render() {
-    const { deck, question, answer, card, cardCount, showAnswer, quizComplete } = this.state
+    const { deck, question, answer, card, cardCount, showAnswer } = this.state
     return(
-        quizComplete
-          ? <View><Text>{this.calcScore()}%</Text></View>
-        : <View style={styles.container}>
-          <Text>{card + 1}/{cardCount}</Text>
-          <Text>{cardCount - card} Remaining</Text>
-          <Text>
-            {showAnswer ? answer : question }
-          </Text>
-          <TouchableOpacity
-            onPress={()=> this.setState({showAnswer: !showAnswer})}
-          >
-            <Text>{showAnswer ? 'Question': 'Answer'}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={()=> this.passOrFail(true)}
-          >
-            <Text>Correct</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={()=> this.passOrFail(false)}
-          >
-            <Text>InCorrect</Text>
-          </TouchableOpacity>
-        </View>
+       <View style={styles.container}>
+        <Text>{card + 1}/{cardCount}</Text>
+        <Text>{cardCount - card} Remaining</Text>
+        <Text>
+          {showAnswer ? answer : question }
+        </Text>
+        <TouchableOpacity
+          onPress={()=> this.setState({showAnswer: !showAnswer})}
+        >
+          <Text>{showAnswer ? 'Question': 'Answer'}</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={()=> this.passOrFail(true)}
+        >
+          <Text>Correct</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={()=> this.passOrFail(false)}
+        >
+          <Text>InCorrect</Text>
+        </TouchableOpacity>
+      </View>
     )
   }
 

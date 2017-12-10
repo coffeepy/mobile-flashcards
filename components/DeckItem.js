@@ -21,7 +21,7 @@ export const DeckItem = ({ deck, nav }) => {
       onPress={()=> nav.navigate('DeckItemDetails', {deck: deck.item})}
     >
       <Text>{deck.item.title}</Text>
-      <Text>{len} Card{ len > 1 && 's'}</Text>
+      <Text>{len} Card{ len > 1 || len === 0 && 's'}</Text>
     </TouchableOpacity>
   )
 }

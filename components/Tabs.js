@@ -10,6 +10,7 @@ export default Tabs = TabNavigator({
     navigationOptions: {
       tabBarIcon: <MaterialCommunityIcons size={30} name='cards-playing-outline'/>,
       tabBarLabel: 'Decks',
+      title: 'Decks',
     },
   },
   AddDeck: {
@@ -17,6 +18,7 @@ export default Tabs = TabNavigator({
     navigationOptions: {
       tabBarIcon: <MaterialIcons size={30} name='library-add'/>,
       tabBarLabel: 'Add Deck',
+      title: 'Add Deck',
     },
   },
 })
