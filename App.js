@@ -8,7 +8,6 @@ import Tabs from './components/Tabs'
 import DeckItemDetails from './components/DeckItemDetails'
 import { setInitData, getDecks, getDeck, saveDeckTitle, addCardToDeck  } from './utils/api'
 import { objectToArray, setLocalNotification } from './utils/helpers'
-// TODO: ADD NOTIFICATION REMINDER
 // TODO: PRETTIFY AND ADD ANIMATIONS
 // TODO: REMOVE DEFAULT DATA, ADD VIEW FOR NO DECKS
 // TODO: CREATE README
@@ -87,7 +86,6 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // alignItems: 'center',
     justifyContent: 'center',
   },
   test: {

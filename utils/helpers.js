@@ -3,11 +3,11 @@ const NOTIFICATION_KEY = 'mobileFlashCards:notification'
 import { Notifications, Permissions } from 'expo'
 import { AsyncStorage } from 'react-native'
 
-clearNotifications = () => {
+export const clearNotifications = () => {
   return AsyncStorage.removeItem(NOTIFICATION_KEY)
     .then(Notifications.cancelAllScheduledNotificationsAsync)
 }
-createNotification = () => {
+const createNotification = () => {
   return {
     title: 'Dont Forget to Study!',
     body: "😸 You haven't taken a quiz today! If you want, jump in and take one now",
