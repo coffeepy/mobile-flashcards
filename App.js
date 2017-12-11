@@ -8,6 +8,7 @@ import Tabs from './components/Tabs'
 import DeckItemDetails from './components/DeckItemDetails'
 import { setInitData, getDecks, getDeck, saveDeckTitle, addCardToDeck  } from './utils/api'
 import { objectToArray, setLocalNotification } from './utils/helpers'
+import FlashCardsStatusBar from './components/StatusBar'
 // TODO: PRETTIFY AND ADD ANIMATIONS
 // TODO: REMOVE DEFAULT DATA, ADD VIEW FOR NO DECKS
 // TODO: CREATE README
@@ -75,6 +76,7 @@ export default class App extends React.Component {
     }
     return (
       <View style={styles.container}>
+        <FlashCardsStatusBar />
         <MainNav
           screenProps={screenProps}
         />
