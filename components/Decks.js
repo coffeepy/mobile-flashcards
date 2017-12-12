@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, FlatList, StyleSheet } from 'react-native'
 import { DeckItem } from './DeckItem'
+import NoDecks from './NoDecks'
 
 // since this is an object need to switch
 class Decks extends Component {
@@ -13,17 +14,18 @@ class Decks extends Component {
   }
   render() {
     const { decks } = this.props.screenProps
-
     return (
-      <View style={styles.decks}>
-        <View style={[decks && decks.length && {borderBottomWidth: 1}]}>
-          <FlatList
-            data={decks}
-            renderItem={this.renderListItem}
-            keyExtractor={this.keyExtractor}
-          />
+      decks
+       ? <View style={styles.decks}>
+          <View style={[decks && decks.length && {borderBottomWidth: 1}]}>
+            <FlatList
+              data={decks}
+              renderItem={this.renderListItem}
+              keyExtractor={this.keyExtractor}
+            />
+          </View>
         </View>
-      </View>
+      : <NoDecks />
     )
   }
 }

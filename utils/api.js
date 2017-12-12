@@ -80,15 +80,8 @@ export const setInitData= () => {
     },
   }
   // resetting each time
-  return AsyncStorage.removeItem(DECK_STORAGE_KEY).then(()=>
-    AsyncStorage.setItem(DECK_STORAGE_KEY, JSON.stringify(initData))
-  )
-
-    // .then(() => {
-    //   AsyncStorage.getAllKeys().then((keys)=> console.log('keys', keys))
-    //   getDecks()
-    //   getDeck('DeckTwo')
-    //   saveDeckTitle('DeckThree')
-    //   addCardToDeck('DeckTwo', {question: 'what up 2', answer: 'same'})
-    // })
+  return AsyncStorage.removeItem(DECK_STORAGE_KEY)
+  // .then(()=>
+  //   AsyncStorage.setItem(DECK_STORAGE_KEY, JSON.stringify(initData))
+  // )
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import Decks from './Decks'
 import AddDeck from './AddDeck'
-import { TabNavigator } from 'react-navigation'
+import { TabNavigator} from 'react-navigation'
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons'
 import { white, darkGray, gray, red } from '../utils/colors'
 
@@ -9,6 +9,7 @@ const tabOpts = {
   navigationOptions: {
     header: null,
   },
+  animationEnabled: true,
   tabBarOptions: {
     activeTintColor: red,
     inactiveTintColor: white,

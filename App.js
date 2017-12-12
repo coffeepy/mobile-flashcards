@@ -57,6 +57,7 @@ export default class App extends React.Component {
     setLocalNotification()
     setInitData()
       .then(this.getDecksAndSetState)
+    // this.getDecksAndSetState()
   }
   submitCard = (deck, card, navigation) => {
     return addCardToDeck(deck.title, card)

@@ -46,7 +46,7 @@ export const setLocalNotification = () => {
 
 }
 export const objectToArray = (obj) => {
-  return Object.entries(obj).map((arr)=> arr[1])
+  return obj && Object.entries(obj).map((arr)=> arr[1])
 }
 
 export const resetToDeck = (deck) => (

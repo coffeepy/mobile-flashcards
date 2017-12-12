@@ -8,6 +8,8 @@ import {
   TouchableOpacity,
 } from 'react-native'
 import { resetToDeck } from '../utils/helpers'
+import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons'
+import { red, gray, darkGray, white } from '../utils/colors'
 
 class AddDeck extends Component {
   state = {
@@ -30,23 +32,29 @@ class AddDeck extends Component {
     const { navigation } = this.props
     return (
       <KeyboardAvoidingView style={styles.container}>
-        <Text>New Deck Title</Text>
+        <MaterialCommunityIcons color={red} size={80} name='tag-plus'/>
+        <Text style={styles.text}>Label and Create a New Deck</Text>
         <TextInput
           value={val}
           onChangeText={this.onTextChange}
           style={styles.input}
+          placeHolder='Deck Label'
         />
         <TouchableOpacity
           onPress={this.onPress}
           style={styles.button}
         >
-          <Text style={styles.buttonText}>Add Deck</Text>
+          <Text style={styles.buttonText}>Create a Deck</Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>
     )
   }
 }
 const styles = StyleSheet.create({
+  text: {
+    color: darkGray,
+    fontSize: 24,
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -56,18 +64,24 @@ const styles = StyleSheet.create({
     height: 60,
     width: 400,
     fontSize: 30,
-    borderWidth: 1,
-    borderColor: 'blue',
+    borderTopWidth: 1,
+    borderRightWidth: 1,
+    borderLeftWidth: 1,
+    borderColor: gray,
   },
   button: {
-    backgroundColor: 'blue',
+    backgroundColor: red,
     height: 60,
     width: 400,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    borderColor: darkGray,
+    borderWidth: 1,
+    borderBottomRightRadius: 3,
+    borderBottomLeftRadius: 3,
   },
   buttonText: {
-    color: 'white',
+    color: white,
   },
 })
 export default AddDeck
