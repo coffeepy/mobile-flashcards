@@ -62,7 +62,9 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 60,
-    width: 400,
+    marginLeft: 1,
+    marginRight: 1,
+    alignSelf: 'stretch',
     fontSize: 30,
     borderTopWidth: 1,
     borderRightWidth: 1,
@@ -72,7 +74,9 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: red,
     height: 60,
-    width: 400,
+    marginLeft: 1,
+    marginRight: 1,
+    alignSelf: 'stretch',
     justifyContent: 'center',
     alignItems: 'center',
     borderColor: darkGray,

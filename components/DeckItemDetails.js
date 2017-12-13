@@ -6,20 +6,14 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native'
+import ThumbButtons from './ThumbButtons'
+import CardCount from './CardCount'
+import { red, gray, white } from '../utils/colors'
+
 class DeckItemDetails extends Component {
   state = {
     deck: {}
   }
-  // resetToDeck = (deck) => (
-  //   NavigationActions.reset({
-  //     // which index to load in the array
-  //     index: 1,
-  //     actions: [
-  //       NavigationActions.navigate({ routeName: 'Home'}),
-  //       NavigationActions.navigate({ routeName: 'DeckItemDetails', params: { deck } }),
-  //     ],
-  //   })
-  // )
   componentDidMount() {
     const { deck } = this.props.navigation.state.params
     // ensures we dont get a stale deck
@@ -31,20 +25,29 @@ class DeckItemDetails extends Component {
     const { title, cards } = deck
     return (
       <View style={styles.container}>
-        <Text>{title}</Text>
-        <Text>{cards && cards.length}</Text>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={()=> this.props.navigation.navigate('AddCard', { deck })}
-        >
-          <Text>Add Card</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={()=> this.props.navigation.navigate('Quiz', { deck })}
-        >
-          <Text>Take Quiz</Text>
-        </TouchableOpacity>
+        <View style={styles.container}>
+          <View style={[styles.deck]}>
+            <View style={[styles.deck, { flex: 1 }]}>
+              <View style={[styles.deck, { flex: 1, alignItems: 'stretch'}]}>
+                <View style={{backgroundColor: red, height: 80, alignItems:'center', justifyContent: 'center'}}>
+                  <Text style={styles.title}>{title}</Text>
+                </View>
+                <View style={[styles.container, {justifyContent: 'center', alignSelf: 'center'}]}>
+                  <CardCount cards={cards} style={{fontSize: 40}}/>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+        <View style={{flex:1}} >
+          <ThumbButtons
+            textOne={'Add Card'}
+            textTwo={'Pop Quiz'}
+            onPressOne={()=> this.props.navigation.navigate('AddCard', { deck })}
+            onPressTwo={()=> this.props.navigation.navigate('Quiz', { deck })}
+            hideButtonTwo={cards && !cards.length > 0}
+          />
+        </View>
       </View>
     )
   }
@@ -53,7 +56,6 @@ class DeckItemDetails extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
   },
   button: {
@@ -65,6 +67,24 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: 'white',
+  },
+  title: {
+    fontSize: 24,
+    color: white,
+  },
+  deck: {
+    height: 300,
+    width: 380,
+    margin: 1,
+    borderColor: gray,
+    borderWidth: 2,
+    shadowColor: gray,
+    shadowOffset: {
+      width: 2,
+      height: 2,
+    },
+    shadowOpacity: 0.4,
+    shadowRadius: 1,
   },
 })
 

@@ -19,10 +19,15 @@ https://reactnavigation.org/docs/navigators/stack
 https://reactjs.org/docs/react-component.html#componentdidupdate
 #reactnative
 https://stackoverflow.com/questions/39661905/how-to-get-values-which-are-in-textinput-when-button-is-click-in-reactnative
-
+https://facebook.github.io/react-native/
+https://stackoverflow.com/questions/35572084/how-to-realize-a-circle-image-button-with-react-native
+#Tab Animation
+https://github.com/react-community/react-navigation/issues/2202
+https://github.com/react-native-community/react-native-tab-view/issues/173
 # how to reset the stacknavigation
 https://github.com/react-community/react-navigation/issues/2068
 https://reactnavigation.org/docs/navigators/navigation-actions#Reset
-
+# how to dismiss keyboard
+https://stackoverflow.com/questions/29685421/react-native-hide-keyboard
 # Color Pallette
 http://www.colorhunt.co/c/98625

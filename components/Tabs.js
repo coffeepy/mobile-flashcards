@@ -24,7 +24,7 @@ export default Tabs = TabNavigator({
   Decks: {
     screen: Decks,
     navigationOptions: {
-      tabBarIcon: ({ tintColor }) => <MaterialCommunityIcons color={tintColor} size={30} name='cards-playing-outline'/>,
+      tabBarIcon: ({ tintColor }) => <MaterialCommunityIcons color={tintColor} size={30} name='cards'/>,
       tabBarLabel: 'Decks',
       title: 'Decks',
     },

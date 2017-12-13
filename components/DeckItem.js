@@ -2,6 +2,7 @@ import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { white, red, darkGray, gray } from '../utils/colors'
 import { Ionicons } from '@expo/vector-icons'
+import CardCount from './CardCount'
 
 const styles = StyleSheet.create({
   button: {
@@ -36,7 +37,6 @@ const styles = StyleSheet.create({
   },
 })
 export const DeckItem = ({ deck, nav }) => {
-  const len = deck.item.cards.length
   return (
     <TouchableOpacity
       style={styles.button}
@@ -47,7 +47,7 @@ export const DeckItem = ({ deck, nav }) => {
       </View>
       <View style={styles.info}>
         <Text style={styles.titleText}>{deck.item.title}</Text>
-        <Text style={styles.subTitle}>{len} Card{ (len > 1 || len === 0) && 's'}</Text>
+        <CardCount style={styles.subTitle} cards={deck.item.cards}/>
       </View>
     </TouchableOpacity>
   )
