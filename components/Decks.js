@@ -17,7 +17,7 @@ class Decks extends Component {
     return (
       decks
        ? <View style={styles.decks}>
-          <View style={[decks && decks.length && {borderBottomWidth: 1}]}>
+          <View style={{borderBottomWidth: 1}}>
             <FlatList
               data={decks}
               renderItem={this.renderListItem}

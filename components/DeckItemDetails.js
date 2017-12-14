@@ -9,6 +9,7 @@ import {
 import ThumbButtons from './ThumbButtons'
 import CardCount from './CardCount'
 import { red, gray, white } from '../utils/colors'
+import StackedCards from './StackedCards'
 
 class DeckItemDetails extends Component {
   state = {
@@ -25,20 +26,10 @@ class DeckItemDetails extends Component {
     const { title, cards } = deck
     return (
       <View style={styles.container}>
-        <View style={styles.container}>
-          <View style={[styles.deck]}>
-            <View style={[styles.deck, { flex: 1 }]}>
-              <View style={[styles.deck, { flex: 1, alignItems: 'stretch'}]}>
-                <View style={{backgroundColor: red, height: 80, alignItems:'center', justifyContent: 'center'}}>
-                  <Text style={styles.title}>{title}</Text>
-                </View>
-                <View style={[styles.container, {justifyContent: 'center', alignSelf: 'center'}]}>
-                  <CardCount cards={cards} style={{fontSize: 40}}/>
-                </View>
-              </View>
-            </View>
-          </View>
-        </View>
+        <StackedCards
+          topCardTitle={<Text style={styles.title}>{title}</Text>}
+          topCardbody={<CardCount cards={cards} style={{fontSize: 40}}/>}
+        />
         <View style={{flex:1}} >
           <ThumbButtons
             textOne={'Add Card'}

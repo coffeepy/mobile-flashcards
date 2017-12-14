@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   info: {
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'center',
   },
   titleText: {
@@ -33,7 +33,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   subTitle: {
-    color: gray,
+    color: white,
+    borderWidth: 1,
+    borderRadius: 8,
+    padding: 8,
+    margin: 4,
+    borderColor: white,
   },
 })
 export const DeckItem = ({ deck, nav }) => {

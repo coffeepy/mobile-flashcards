@@ -31,3 +31,9 @@ https://reactnavigation.org/docs/navigators/navigation-actions#Reset
 https://stackoverflow.com/questions/29685421/react-native-hide-keyboard
 # Color Pallette
 http://www.colorhunt.co/c/98625
+# react transform
+https://facebook.github.io/react-vr/docs/3dcoordinates-and-transforms.html
+# rotate Y axis for flip animation
+https://www.webascender.com/blog/css-3d-card-flip-animation-tutorial/
+# helped me see where my error was
+https://stackoverflow.com/questions/46689550/react-native-transform-with-key-of-rotate-must-be-a-string-rotate0deg
