@@ -24,6 +24,16 @@ export const getDeck = (deckTitle) => {
     })
 }
 
+export const removeDeck = (deckTitle) => {
+  return getDecks()
+    .then((decks)=> {
+      console.log('deckTitle del', deckTitle)
+      console.log('befor del', decks)
+      delete decks[deckTitle]
+      console.log('after del', decks)
+      AsyncStorage.setItem(DECK_STORAGE_KEY, JSON.stringify(decks))
+    })
+}
 export const saveDeckTitle = (deckTitle) => {
   deck = {
     [deckTitle]: {

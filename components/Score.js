@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity, Animated, StyleSheet } from 'react-native'
-import { resetToDeck } from '../utils/helpers'
+import { resetToDeck, killNav } from '../utils/helpers'
 import { gray, red, white } from '../utils/colors'
 
 class Score extends Component  {
   state = {
-    bounceValue: Animated.Value(1)
+    bounceValue: new Animated.Value(1)
   }
   componentDidMount() {
     const {bounceValue} = this.state
     Animated.sequence([
-      Animated.timing(bounceValue, { toValue: 1.04 }),
+      Animated.timing(bounceValue, { toValue: 2 }),
       Animated.spring(bounceValue, { toValue: 1 }),
     ]).start()
   }

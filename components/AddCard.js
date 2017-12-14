@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
   TextInput,
   View,
-  Keyboard,
   TouchableWithoutFeedback,
 } from 'react-native'
 import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons'
@@ -21,7 +20,6 @@ class AddCard extends Component {
   onPress = () => {
     const { navigation } = this.props
     const { deck } = navigation.state.params
-    console.log('onpress addcard deck', deck);
     this.props.screenProps.submitCard(deck, this.state, navigation)
     this.setState({question:'', answer:''})
   }
@@ -35,7 +33,6 @@ class AddCard extends Component {
           <KeyboardAvoidingView>
             <Text style={styles.text}>Question</Text>
             <TextInput
-              onEndEditing={Keyboard.dismiss}
               value={question}
               style={styles.input}
               onChangeText={(text)=> this.setState({question:text})}

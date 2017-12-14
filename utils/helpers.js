@@ -20,14 +20,15 @@ export const setLocalNotification = () => {
   return AsyncStorage.getItem(NOTIFICATION_KEY)
     .then(JSON.parse)
     .then((data)=> {
+      console.log('notif data', data)
       if (data === null) {
         Permissions.askAsync(Permissions.NOTIFICATIONS)
           .then(({status}) => {
             if (status === 'granted') {
+              console.log('notification set');
               Notifications.cancelAllScheduledNotificationsAsync()
-              // tommorrow d
               let tomorrow = new Date()
-              tomorrow.setDate(tomorrow.getDate() + 1)
+              tomorrow.setDate(tomorrow.getDate()+ 1)
               tomorrow.setHours(18)
               tomorrow.setMinutes(0)
               Notifications.scheduleLocalNotificationAsync(
@@ -59,6 +60,7 @@ export const resetToDeck = (deck) => (
       ],
     })
   )
+
 
 export const resetToHome =
     NavigationActions.reset({

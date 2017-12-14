@@ -5,7 +5,7 @@ import { Ionicons } from '@expo/vector-icons'
 import CardCount from './CardCount'
 
 const styles = StyleSheet.create({
-  button: {
+  itemCont: {
     flex: 1,
     height: 100,
     flexDirection: 'row',
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     borderRightWidth: 1,
     borderColor: darkGray,
     justifyContent: 'flex-start',
-    alignItems: 'stretch',
+    alignItems: 'center',
   },
   icon: {
     alignItems: 'center',
@@ -26,6 +26,11 @@ const styles = StyleSheet.create({
   info: {
     alignItems: 'flex-start',
     justifyContent: 'center',
+  },
+  endMenu: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-end'
   },
   titleText: {
     color: white,
@@ -41,10 +46,9 @@ const styles = StyleSheet.create({
     borderColor: white,
   },
 })
-export const DeckItem = ({ deck, nav }) => {
+export const DeckItem = ({ deck, nav, screenProps }) => {
   return (
-    <TouchableOpacity
-      style={styles.button}
+    <TouchableOpacity style={styles.itemCont}
       onPress={()=> nav.navigate('DeckItemDetails', {deck: deck.item})}
     >
       <View style={styles.icon}>
@@ -53,6 +57,13 @@ export const DeckItem = ({ deck, nav }) => {
       <View style={styles.info}>
         <Text style={styles.titleText}>{deck.item.title}</Text>
         <CardCount style={styles.subTitle} cards={deck.item.cards}/>
+      </View>
+      <View style={styles.endMenu}>
+        <TouchableOpacity
+          onPress={()=> screenProps.removeDeck(deck.item.title)}
+        >
+          <Ionicons style={{margin: 4}} color={white} size={30} name='ios-trash-outline'/>
+        </TouchableOpacity>
       </View>
     </TouchableOpacity>
   )
