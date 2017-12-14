@@ -68,8 +68,8 @@ export default class App extends React.Component {
   }
   submitCard = (deck, card, navigation) => {
     return addCardToDeck(deck.title, card)
-      .then(this.getDecksAndSetState)
       .then(()=>  navigation.dispatch(resetToDeck(deck)) )
+      .then(this.getDecksAndSetState)
   }
   submitDeck = (deckTitle) => {
     return saveDeckTitle(deckTitle)
