@@ -1,18 +1,16 @@
 import React from 'react';
-import { StyleSheet, Text, View, } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { StackNavigator } from 'react-navigation'
 import AddCard from './components/AddCard'
 import Quiz from './components/Quiz'
 import Score from './components/Score'
 import Tabs from './components/Tabs'
 import DeckItemDetails from './components/DeckItemDetails'
-import { setInitData, getDecks, getDeck, saveDeckTitle, addCardToDeck, removeDeck } from './utils/api'
-import { objectToArray, setLocalNotification, clearNotifications, resetToDeck } from './utils/helpers'
+import { getDecks, saveDeckTitle, addCardToDeck, removeDeck } from './utils/api'
+import { objectToArray, setLocalNotification, resetToDeck } from './utils/helpers'
 import FlashCardsStatusBar from './components/StatusBar'
 import { white, gray } from './utils/colors'
 // TODO: CREATE README
-// TODO: PRESSING A DECK SHOULD GENERATE AN ANIMATION
-// use this  https://reactnavigation.org/docs/navigators/navigation-actions#Reset
 mainNavOpts = {
   headerMode: 'float',
   navigationOptions: {
@@ -94,7 +92,7 @@ export default class App extends React.Component {
           screenProps={screenProps}
         />
       </View>
-    );
+    )
   }
 }
 
@@ -103,8 +101,4 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
-  test: {
-    flex: 1,
-    backgroundColor: 'red',
-  }
-});
+})
