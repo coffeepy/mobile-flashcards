@@ -4,7 +4,6 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableOpacity,
 } from 'react-native'
 import ThumbButtons from './ThumbButtons'
 import CardCount from './CardCount'
@@ -49,33 +48,9 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
   },
-  button: {
-    backgroundColor: 'blue',
-    height: 60,
-    width: 400,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  buttonText: {
-    color: 'white',
-  },
   title: {
     fontSize: 24,
     color: white,
-  },
-  deck: {
-    height: 300,
-    width: 380,
-    margin: 1,
-    borderColor: gray,
-    borderWidth: 2,
-    shadowColor: gray,
-    shadowOffset: {
-      width: 2,
-      height: 2,
-    },
-    shadowOpacity: 0.4,
-    shadowRadius: 1,
   },
 })
 
