@@ -2,9 +2,8 @@ import React, { Component } from 'react'
 import { getDeck } from '../utils/api'
 import { setLocalNotification, clearNotifications } from '../utils/helpers'
 import Score from './Score'
-import  { View, Text, StyleSheet, TouchableOpacity, Animated} from 'react-native'
-import ThumbButtons from './ThumbButtons'
-import { Ionicons, FontAwesome } from '@expo/vector-icons'
+import  { View, Text, StyleSheet, TouchableOpacity, Animated } from 'react-native'
+import { Ionicons } from '@expo/vector-icons'
 import { red, gray, darkGray, white } from '../utils/colors'
 
 class Quiz extends Component {
@@ -45,7 +44,6 @@ class Quiz extends Component {
     cardCount -= 1
     if (correct) {
       rightAnswers += 1
-      console.log('rightAnswer', rightAnswers)
     }
     if (card > cardCount) {
       return this.setState({quizComplete: true, rightAnswers})
@@ -90,8 +88,8 @@ class Quiz extends Component {
     Animated.timing(transX, { toValue: 0, duration: 300 }).start()
   }
   render() {
-    let { deck, opacity, question, answer, card, flip, cardCount, showAnswer, transX } = this.state
-    let animStyle = {
+    const { deck, opacity, question, answer, card, flip, cardCount, showAnswer, transX } = this.state
+    const animStyle = {
       transform: [
         {
           rotateY: flip.interpolate({
@@ -157,11 +155,6 @@ const styles = StyleSheet.create({
   center: {
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  flipCard: {
-    transform: [
-      {rotateY: '30deg'},
-    ]
   },
   answerToggleBtnText: {
     color: red,

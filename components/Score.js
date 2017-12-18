@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity, Animated, StyleSheet } from 'react-native'
-import { resetToDeck, killNav } from '../utils/helpers'
+import { resetToDeck } from '../utils/helpers'
 import { gray, red, white } from '../utils/colors'
 
 class Score extends Component  {
@@ -22,7 +22,7 @@ class Score extends Component  {
     return (
       <View style={styles.container}>
         <View style={styles.container}>
-          <Animated.View style={[styles.quizCont, {transform:[{scale: bounceValue}]}]}>
+          <Animated.View style={[styles.scoreCont, {transform:[{scale: bounceValue}]}]}>
             <Text style={{color: white, fontSize: 40}}>
               You're Score is <Text style={{fontSize:50, color: scoreColor}}>{score}%</Text>
             </Text>
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  quizCont: {
+  scoreCont: {
     backgroundColor: gray,
     padding: 8,
     borderColor: gray,
