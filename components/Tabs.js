@@ -3,7 +3,7 @@ import Decks from './Decks'
 import AddDeck from './AddDeck'
 import { TabNavigator} from 'react-navigation'
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons'
-import { white, darkGray, gray, red } from '../utils/colors'
+import { white, gray, red } from '../utils/colors'
 
 const tabOpts = {
   navigationOptions: {

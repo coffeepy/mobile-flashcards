@@ -1,6 +1,6 @@
 import React from 'react'
 import { StatusBar, View } from 'react-native'
-import { gray, white } from '../utils/colors'
+import { gray } from '../utils/colors'
 import { Constants } from 'expo'
 
 const FlashCardsStatusBar = () => {

@@ -41,9 +41,6 @@ styles = StyleSheet.create({
   button: {
     justifyContent: 'center',
   },
-  buttonText: {
-    color: white,
-  },
   text: {
     color: darkGray,
     fontSize: 18,
