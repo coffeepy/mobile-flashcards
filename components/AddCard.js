@@ -9,7 +9,7 @@ import {
 import { red, gray, darkGray } from '../utils/colors'
 import { MaterialIcons } from '@expo/vector-icons'
 import ThumbButtons from './ThumbButtons'
-// TODO: CHANGE CSS, the way you have it silly
+
 class AddCard extends Component {
   state = {
     question: '',
@@ -51,7 +51,7 @@ class AddCard extends Component {
                 textOne={'Add Card'}
                 hideButtonTwo={true}
               />
-            </KeyboardAvoidingView >
+            </KeyboardAvoidingView>
         </KeyboardAvoidingView>
     )
   }
