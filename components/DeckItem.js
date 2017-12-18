@@ -1,8 +1,31 @@
 import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import { white, red, darkGray, gray } from '../utils/colors'
+import { white, red, darkGray } from '../utils/colors'
 import { Ionicons } from '@expo/vector-icons'
 import CardCount from './CardCount'
+
+export const DeckItem = ({ deck, nav, screenProps }) => {
+  return (
+    <TouchableOpacity style={styles.itemCont}
+      onPress={()=> nav.navigate('DeckItemDetails', {deck: deck.item})}
+    >
+      <View style={styles.icon}>
+        <Ionicons style={styles.icon} color={white} size={60} name='ios-card-outline'/>
+      </View>
+      <View style={styles.info}>
+        <Text style={styles.titleText}>{deck.item.title}</Text>
+        <CardCount style={styles.subTitle} cards={deck.item.cards}/>
+      </View>
+      <View style={styles.endMenu}>
+        <TouchableOpacity
+          onPress={()=> screenProps.removeDeck(deck.item.title)}
+        >
+          <Ionicons style={{margin: 4}} color={white} size={30} name='ios-trash-outline'/>
+        </TouchableOpacity>
+      </View>
+    </TouchableOpacity>
+  )
+}
 
 const styles = StyleSheet.create({
   itemCont: {
@@ -46,25 +69,3 @@ const styles = StyleSheet.create({
     borderColor: white,
   },
 })
-export const DeckItem = ({ deck, nav, screenProps }) => {
-  return (
-    <TouchableOpacity style={styles.itemCont}
-      onPress={()=> nav.navigate('DeckItemDetails', {deck: deck.item})}
-    >
-      <View style={styles.icon}>
-        <Ionicons style={styles.icon} color={white} size={60} name='ios-card-outline'/>
-      </View>
-      <View style={styles.info}>
-        <Text style={styles.titleText}>{deck.item.title}</Text>
-        <CardCount style={styles.subTitle} cards={deck.item.cards}/>
-      </View>
-      <View style={styles.endMenu}>
-        <TouchableOpacity
-          onPress={()=> screenProps.removeDeck(deck.item.title)}
-        >
-          <Ionicons style={{margin: 4}} color={white} size={30} name='ios-trash-outline'/>
-        </TouchableOpacity>
-      </View>
-    </TouchableOpacity>
-  )
-}
