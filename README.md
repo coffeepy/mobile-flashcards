@@ -1,8 +1,7 @@
 # Mobile Flash Cards aka UdaciCards Project for React NanoDegree
-
 This is a mobile ios app built using React Native and was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
-### Please note this has only been tested on ios using Expo.
+* Please note this has only been tested on ios using Expo.
 
 ## How to install this project
 
