@@ -10,7 +10,6 @@ const DECK_STORAGE_KEY = 'mobileFlashCards:decks'
 export const getDecks = () => {
   return AsyncStorage.getItem(DECK_STORAGE_KEY)
     .then((obj)=> {
-      console.log('Decks', JSON.parse(obj));
       return JSON.parse(obj)
     })
 }
@@ -19,21 +18,19 @@ export const getDecks = () => {
 export const getDeck = (deckTitle) => {
   return AsyncStorage.getItem(DECK_STORAGE_KEY)
     .then((obj)=> {
-      console.log('getDeck', JSON.parse(obj)[deckTitle])
       return JSON.parse(obj)[deckTitle]
     })
 }
 
+// remove a single Deck
 export const removeDeck = (deckTitle) => {
   return getDecks()
     .then((decks)=> {
-      console.log('deckTitle del', deckTitle)
-      console.log('befor del', decks)
       delete decks[deckTitle]
-      console.log('after del', decks)
       AsyncStorage.setItem(DECK_STORAGE_KEY, JSON.stringify(decks))
     })
 }
+// Add a new deck
 export const saveDeckTitle = (deckTitle) => {
   deck = {
     [deckTitle]: {
@@ -43,55 +40,14 @@ export const saveDeckTitle = (deckTitle) => {
   }
   return AsyncStorage.mergeItem(DECK_STORAGE_KEY, JSON.stringify(deck))
     .then((obj)=> {
-      console.log('added item', obj)
       getDecks()
     })
 }
-
+// add a card to a deck
 export const addCardToDeck = (deckTitle, card) => {
-  console.log('deckTtile', deckTitle)
   return getDeck(deckTitle)
           .then((deck) => {
-            console.log('add before', deck)
             deck.cards.push(card)
-            console.log('add after', deck)
             return AsyncStorage.mergeItem(DECK_STORAGE_KEY, JSON.stringify({[deckTitle]:deck}))
           }).then(() => getDecks())
-}
-
-// just for initial testing
-export const setInitData= () => {
-  const initData = {
-    "Deck One": {
-      title: 'Deck One',
-      cards: [
-        {
-          'question': 'Whats Up?',
-          'answer': 'Nada',
-        },
-        {
-          'question': 'Whats Up Again?',
-          'answer': 'Nada',
-        },
-        {
-          'question': 'Whats Up Finally?',
-          'answer': 'Nada',
-        },
-      ],
-    },
-    "Deck Two": {
-      title: 'Deck Two',
-      cards: [
-        {
-          'question': 'Whats Up?',
-          'answer': 'stop asking',
-        },
-      ],
-    },
-  }
-  // resetting each time
-  return AsyncStorage.removeItem(DECK_STORAGE_KEY)
-  // .then(()=>
-  //   AsyncStorage.setItem(DECK_STORAGE_KEY, JSON.stringify(initData))
-  // )
 }
