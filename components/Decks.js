@@ -5,35 +5,29 @@ import { gray, red, white } from '../utils/colors'
 import { FontAwesome } from '@expo/vector-icons'
 import TitleCard from './TitleCard'
 
-
-// since this is an object need to switch
-class Decks extends Component {
-  renderListItem = (deck) => {
-    const { navigation, screenProps } = this.props
+const renderListItem = ({deck, navigation, screenProps}) => {
     return <DeckItem nav={navigation} screenProps={screenProps} deck={deck} />
   }
-  keyExtractor = (item, idx) => {
+const keyExtractor = (item, idx) => {
     return idx
   }
-  render() {
-    const { decks } = this.props.screenProps
-    console.log('decks remain', decks)
-    return (
-      decks && decks.length
-       ? <View style={{flex:1}}>
-         <TitleCard noDecks={false}/>
-         <View style={{flex: 2}}>
-          <FlatList
-            data={decks}
-            renderItem={this.renderListItem}
-            keyExtractor={this.keyExtractor}
-          />
-         </View>
-        </View>
-      : <TitleCard noDecks={true}/>
 
-    )
-  }
+const Decks = ({ navigation, screenProps }) => {
+  const { decks } = screenProps
+  return (
+    decks && decks.length
+     ? <View style={{flex:1}}>
+       <TitleCard noDecks={false}/>
+       <View style={{flex: 2}}>
+        <FlatList
+          data={decks}
+          renderItem={(deck) => renderListItem({deck, navigation, screenProps})}
+          keyExtractor={keyExtractor}
+        />
+       </View>
+      </View>
+    : <TitleCard noDecks={true}/>
+  )
 }
 
 styles = StyleSheet.create({
