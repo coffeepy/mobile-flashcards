@@ -1,16 +1,16 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { StackNavigator } from 'react-navigation'
 import AddCard from './components/AddCard'
 import Quiz from './components/Quiz'
 import Score from './components/Score'
 import Tabs from './components/Tabs'
 import DeckItemDetails from './components/DeckItemDetails'
+import FlashCardsStatusBar from './components/StatusBar'
 import { getDecks, saveDeckTitle, addCardToDeck, removeDeck } from './utils/api'
 import { objectToArray, setLocalNotification, resetToDeck } from './utils/helpers'
-import FlashCardsStatusBar from './components/StatusBar'
 import { white, gray } from './utils/colors'
-// TODO: CREATE README
+
 mainNavOpts = {
   headerMode: 'float',
   navigationOptions: {
@@ -86,7 +86,7 @@ export default class App extends React.Component {
       removeDeck: this.removeDeck,
     }
     return (
-      <View style={styles.container}>
+      <View style={{flex:1, justifyContent:'center'}}>
         <FlashCardsStatusBar />
         <MainNav
           screenProps={screenProps}
@@ -95,10 +95,3 @@ export default class App extends React.Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-})
